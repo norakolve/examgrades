@@ -70,16 +70,15 @@ ax.set_ylabel("Mean reading exam score")
 
 #%%
 # GROUPED bar chart with all exam grades
-import trompy as tp
-m_writing = list(df_male["writing score"])
-f_writing = list(df_female["writing score"])
-m_reading = list(df_male["reading score"])
-f_reading = list(df_female["reading score"])
-m_math = list (df_male["math score"])
-f_math = list(df_female["math score"])
+#import trompy as tp
+#m_writing = list(df_male["writing score"])
+#f_writing = list(df_female["writing score"])
+#m_reading = list(df_male["reading score"])
+#f_reading = list(df_female["reading score"])
+#m_math = list (df_male["math score"])
+#f_math = list(df_female["math score"])
 
-tp.barscatter([m_writing,f_writing])
-
+#tp.barscatter([m_writing,f_writing])
 #tp.barscatter([[m_writing,f_writing],[m_reading,f_reading],[m_math, f_math]])
 
 #%%
@@ -96,18 +95,19 @@ df_freelunch = df[filter_freelunch]
 
 
 #%%
-#
+#   lunch types and math scores 
 mean_mathscore_standardlunch = df_standardlunch["math score"].mean()
 mean_mathscore_freelunch = df_freelunch["math score"].mean()
 
-#%%
+#%% Violin plot over math score and lunch types
 fig, ax = plt.subplots()
 
-
-ax.violinplot([df_standardlunch["math score"],  df_freelunch["math score"]], [2,3])
-                  
-
-
+ax.violinplot([df_standardlunch["math score"],  df_freelunch["math score"]], [0,1])
+ax.set_title('Math exam score and lunch types')
+ax.set_ylabel('Math exam score')
+   
+ax.set_xticks([0, 1])
+ax.set_xticklabels(['Standard lunch', 'Free/reduced lunch'])
 
 
 
