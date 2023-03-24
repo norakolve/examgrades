@@ -65,18 +65,18 @@ f, ax = plt.subplots()
 Y = [mean_readingscore_female, mean_readingscore_male]
 X = ["Female", "Male"]
 
-ax.bar(X, height=Y, color="blue", align='center', )
+ax.bar(X, height=Y, color="blue")
 ax.set_ylabel("Mean reading exam score")
 
 #%%
 # GROUPED bar chart with all exam grades
-#import trompy as tp
-#m_writing = list(df_male["writing score"])
-#f_writing = list(df_female["writing score"])
-#m_reading = list(df_male["reading score"])
-#f_reading = list(df_female["reading score"])
-#m_math = list (df_male["math score"])
-#f_math = list(df_female["math score"])
+import trompy as tp
+m_writing = list(df_male["writing score"])
+f_writing = list(df_female["writing score"])
+m_reading = list(df_male["reading score"])
+f_reading = list(df_female["reading score"])
+m_math = list (df_male["math score"])
+f_math = list(df_female["math score"])
 
 #tp.barscatter([m_writing,f_writing])
 #tp.barscatter([[m_writing,f_writing],[m_reading,f_reading],[m_math, f_math]])
@@ -91,8 +91,6 @@ df_standardlunch = df[filter_standardlunch]
 
 filter_freelunch= df["lunch"] == "free/reduced"
 df_freelunch = df[filter_freelunch]
-
-
 
 #%%
 #   lunch types and math scores 
@@ -109,8 +107,21 @@ ax.set_ylabel('Math exam score')
 ax.set_xticks([0, 1])
 ax.set_xticklabels(['Standard lunch', 'Free/reduced lunch'])
 
+#%%
+#Test preparation course, making two groups: completed and none
+
+filter_preparation_c = df["test preparation course"] == "completed"
+df_preparation_c = df[filter_preparation_c]
 
 
+filter_preparation_n = df["test preparation course"] == "none"
+df_preparation_n = df[filter_preparation_n]
+
+#%% 
 
 
+f, ax = plt.subplots()
+X = [[mean_readingscore_female, mean_readingscore_male],[mean_writingscore_female, mean_writingscore_male],[mean_mathscore_female, mean_mathscore_male]]
 
+ax.bar(X, height=Y, color="blue")
+ax.set_ylabel("Mean reading exam score")
