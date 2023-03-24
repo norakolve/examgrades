@@ -117,11 +117,21 @@ df_preparation_c = df[filter_preparation_c]
 filter_preparation_n = df["test preparation course"] == "none"
 df_preparation_n = df[filter_preparation_n]
 
-#%% 
+#%% Mean exam scores all three for the two genders
+
+data = [[63.196687370600415, 71.88819875776397, 71.7080745341615],
+[69.38491295938104, 66.30560928433269, 64.02901353965184]]
+X = np.arange(3)
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.bar(X + 0.00, data[0], color = 'purple', width = 0.25)
+ax.bar(X + 0.25, data[1], color = 'green', width = 0.25)
+
+ax.set_title("Mean exam scores for male and female on all three exams")
+ax.set_ylabel("Mean exam score")
+ax.set_xlabel("Female and male")
 
 
-f, ax = plt.subplots()
-X = [[mean_readingscore_female, mean_readingscore_male],[mean_writingscore_female, mean_writingscore_male],[mean_mathscore_female, mean_mathscore_male]]
 
-ax.bar(X, height=Y, color="blue")
-ax.set_ylabel("Mean reading exam score")
+
+
