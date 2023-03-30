@@ -70,7 +70,7 @@ ax.set_ylabel("Mean reading exam score")
 
 #%%
 # GROUPED bar chart with all exam grades
-import trompy as tp
+#import trompy as tp
 m_writing = list(df_male["writing score"])
 f_writing = list(df_female["writing score"])
 m_reading = list(df_male["reading score"])
@@ -121,17 +121,23 @@ df_preparation_n = df[filter_preparation_n]
 
 data = [[63.196687370600415, 71.88819875776397, 71.7080745341615],
 [69.38491295938104, 66.30560928433269, 64.02901353965184]]
+
+
 X = np.arange(3)
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
-ax.bar(X + 0.00, data[0], color = 'purple', width = 0.25)
-ax.bar(X + 0.25, data[1], color = 'green', width = 0.25)
+space = 0.2
+width = 0.4
 
-ax.set_title("Mean exam scores for male and female on all three exams")
+ax.bar(X - space, data[0], color = 'pink', width = width, label = "Female")
+ax.bar(X + space, data[1], color = 'grey', width = width, label = "Male")
+
+ax.set_title("Mean exam scores for male and female on all three exams", weight = "bold")
 ax.set_ylabel("Mean exam score")
-ax.set_xlabel("Female and male")
-
-
-
-
+ax.set_xticks(X)
+ax.set_xticklabels(["Math exam","Reading exam", "Writing exam"])
+ax.grid(axis = "y")
+ax.legend(loc = "upper right")
+ax.set_xlim([-0.6, 3])
+ 
 
