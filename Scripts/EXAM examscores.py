@@ -65,7 +65,7 @@ f, ax = plt.subplots()
 Y = [mean_readingscore_female, mean_readingscore_male]
 X = ["Female", "Male"]
 
-ax.bar(X, height=Y, color="blue")
+ax.bar(X, height=Y, color = "blue")
 ax.set_ylabel("Mean reading exam score")
 
 #%%
@@ -101,9 +101,9 @@ mean_mathscore_freelunch = df_freelunch["math score"].mean()
 fig, ax = plt.subplots()
 
 ax.violinplot([df_standardlunch["math score"],  df_freelunch["math score"]], [0,1])
-ax.set_title('Math exam score and lunch types')
+ax.set_title('Math exam score and lunch types', weight = "bold")
 ax.set_ylabel('Math exam score')
-   
+ 
 ax.set_xticks([0, 1])
 ax.set_xticklabels(['Standard lunch', 'Free/reduced lunch'])
 
@@ -129,8 +129,8 @@ ax = fig.add_axes([0,0,1,1])
 space = 0.2
 width = 0.4
 
-ax.bar(X - space, data[0], color = 'pink', width = width, label = "Female")
-ax.bar(X + space, data[1], color = 'grey', width = width, label = "Male")
+ax.bar(X - space, data[0], color = 'palevioletred', width = width, label = "Female")
+ax.bar(X + space, data[1], color = 'steelblue', width = width, label = "Male")
 
 ax.set_title("Mean exam scores for male and female on all three exams", weight = "bold")
 ax.set_ylabel("Mean exam score")
