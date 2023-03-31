@@ -74,6 +74,7 @@ X = ["Female", "Male"]
 
 ax.grid(axis = "y")
 ax.bar(X, height = Y, color = "indianred")
+ax.set_title("Mean reading exam score for female and male", weight = "bold")
 ax.set_ylabel("Mean reading exam score")
 
 #%%
@@ -150,5 +151,8 @@ ax.legend(loc = "upper right")
 ax.set_xlim([-0.6, 3])
 
 #%%
+
+
+CHECK 
  
 
