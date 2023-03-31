@@ -41,7 +41,7 @@ f, ax = plt.subplots()
 Y = [mean_mathscore_male, mean_mathscore_female]
 X = ["Female", "Male"]
 
-ax.bar(X, height=Y, color="Grey")
+ax.bar(X, height=Y, color= "mediumpurple" )
 
 ax.set_title("Mean math exam score for male and female", weight = "bold")
 ax.set_ylabel("Mean math exam score")
@@ -57,7 +57,7 @@ f, ax = plt.subplots()
 Y = [mean_writingscore_female, mean_writingscore_male]
 X = ["Female", "Male"]
 
-ax.bar(X, height = Y, color = "orange")
+ax.bar(X, height = Y, color = "sandybrown")
 ax.grid(axis = "y")
 ax.set_title("Mean writing exam score for female and male", weight = "bold")
 ax.set_ylabel("Mean writing exam score")
@@ -73,7 +73,7 @@ Y = [mean_readingscore_female, mean_readingscore_male]
 X = ["Female", "Male"]
 
 ax.grid(axis = "y")
-ax.bar(X, height = Y, color = "pink")
+ax.bar(X, height = Y, color = "indianred")
 ax.set_ylabel("Mean reading exam score")
 
 #%%
