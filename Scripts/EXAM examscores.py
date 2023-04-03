@@ -30,12 +30,28 @@ df_male = df[filter_male]
 filter_female = df["gender"] == "female"
 df_female = df[filter_female]
 
-#%% Making two new variables taht I will use in a graph
+#%% Making variables that I will use later in the analysis
 
 mean_mathscore_male = df_male["math score"].mean()  #This is the mean mathscore for males on the exam
 mean_mathscore_female = df_female["math score"].mean() #This is the mean mathscore for females on the exam
 
-#%%
+mean_writingscore_male = df_male["writing score"].mean() #This is the mean writingscore for males on the exam
+mean_writingscore_female = df_female["writing score"].mean() #This is the mean writingscore for females on the exam
+
+mean_readingscore_male = df_male["reading score"].mean() #This is the mean readingscore for males on the exam
+mean_readingscore_female = df_female["reading score"].mean() #This is the mean readingscore for females on the exam
+
+#%% Making bargraph with mean exam score for female and male
+
+f, ax = plt.subplots()
+Y = [mean_mathscore_male, mean_mathscore_female]
+X = ["Male", "Female"]
+
+ax.bar(X, height = Y, color = "blue")
+ax.grid(axis = "y")
+ax.set_title("Mean math exam score for female and male", weight = "bold")
+ax.set_ylabel("Mean math exam score")
+
 #GRAF MEAN math score vs gender
 f, ax = plt.subplots()
 Y = [mean_mathscore_male, mean_mathscore_female]
@@ -47,26 +63,18 @@ ax.set_title("Mean math exam score for male and female", weight = "bold")
 ax.set_ylabel("Mean math exam score")
 ax.grid(axis = "y")
  
-#%%
-#Making a bargraph with mean writing score for female and male
-
-mean_writingscore_male = df_male["writing score"].mean()
-mean_writingscore_female = df_female["writing score"].mean()
+#%% Making a bargraph with mean writing score for female and male
 
 f, ax = plt.subplots()
 Y = [mean_writingscore_female, mean_writingscore_male]
 X = ["Female", "Male"]
 
-ax.bar(X, height = Y, color = "sandybrown")
+ax.bar(X, height = Y, color = "pink")
 ax.grid(axis = "y")
 ax.set_title("Mean writing exam score for female and male", weight = "bold")
 ax.set_ylabel("Mean writing exam score")
 
-#%%
-#Making a bargraph for mean reading score for female and male
-
-mean_readingscore_male = df_male["reading score"].mean()
-mean_readingscore_female = df_female["reading score"].mean()
+#%% Making a bargraph for mean reading score for female and male
 
 f, ax = plt.subplots()
 Y = [mean_readingscore_female, mean_readingscore_male]
@@ -77,8 +85,7 @@ ax.bar(X, height = Y, color = "indianred")
 ax.set_title("Mean reading exam score for female and male", weight = "bold")
 ax.set_ylabel("Mean reading exam score")
 
-#%%
-#Making standard lunch and free/reduced lunsh into two different groups 
+#%% Making standard lunch and free/reduced lunsh into two different groups 
 
 filter_standardlunch = df["lunch"] == "standard"
 df_standardlunch = df[filter_standardlunch]
@@ -100,6 +107,7 @@ ax.violinplot([df_standardlunch["math score"],  df_freelunch["math score"]], [0,
 ax.set_title('Math exam score and lunch type', weight = "bold")
 ax.set_ylabel('Math exam score')
  
+ax.grid(axis = "y")
 ax.set_xticks([0, 0.5])
 ax.set_xticklabels(['Standard lunch', 'Free/reduced lunch'])
 
@@ -127,6 +135,7 @@ ax.set_title('Math exam score and preparation course', weight = "bold")
 ax.set_ylabel('Math exam score')
  
 ax.set_xticks([0, 0.5])
+ax.grid(axis = "y")
 ax.set_xticklabels(['Preparation course completed', 'None preparation course'])
 
 #%% Mean exam scores all three for the two genders
@@ -137,7 +146,7 @@ X = np.arange(3)
 fig = plt.figure()
 ax = fig.add_axes([0,0,1,1])
 space = 0.2
-width = 0.4
+width = 0.35
 
 ax.bar(X - space, data[0], color = 'palevioletred', width = width, label = "Female")
 ax.bar(X + space, data[1], color = 'steelblue', width = width, label = "Male")
@@ -150,9 +159,32 @@ ax.grid(axis = "y")
 ax.legend(loc = "upper right")
 ax.set_xlim([-0.6, 3])
 
-#%%
-
-
-CHECK 
+#%% Filtering parental level of education intro different groups
  
+filter_high_school = df["parental level of education"] == "high school"
+df_high_school = df[filter_high_school]
+
+filter_some_high_school = df["parental level of education"] == "some high school"
+df_some_high_school = df[filter_some_high_school]
+
+filter_some_college = df["parental level of education"] == "some college"
+df_some_colleg = df[filter_some_college]
+
+
+filter_bachelors_degree = df["parental level of education"] == "bachelor´s degree"
+df_bachelors_degree = df[filter_bachelors_degree]
+                         
+filter_some_high_school= df["parental level of education"] == "some high school"
+df_some_high_school = df[filter_some_high_school]
+
+filter_masters= df["parental level of education"] == "master´s degree"
+df_masters = df[filter_masters]
+
+filter_associates= df["parental level of education"] == "associate's degree"
+df_associates = df[filter_associates]
+
+#%% Mean overall exam score on all three exams for both female and male 
+
+df.mean()
+df.mean("math score")
 
