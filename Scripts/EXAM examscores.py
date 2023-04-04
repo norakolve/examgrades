@@ -47,7 +47,7 @@ f, ax = plt.subplots()
 Y = [mean_mathscore_male, mean_mathscore_female]
 X = ["Male", "Female"]
 
-ax.bar(X, height = Y, color = "blue")
+ax.bar(X, height = Y, color = "grey")
 ax.grid(axis = "y")
 ax.set_title("Mean math exam score for female and male", weight = "bold")
 ax.set_ylabel("Mean math exam score")
@@ -184,7 +184,30 @@ filter_associates= df["parental level of education"] == "associate's degree"
 df_associates = df[filter_associates]
 
 #%% Mean overall exam score on all three exams for both female and male 
+#Making variables of parental level of education and reading score
 
-df.mean()
-df.mean("math score")
+readingscore_high_school = df_high_school["reading score"]
+readingscore_some_high_school = df_some_high_school["reading score"]
+readingscore_some_college = df_some_colleg["reading score"]
+
+
+
+
+fig, ax = plt.subplots()
+
+ax.violinplot ([readingscore_high_school, readingscore_some_high_school, readingscore_some_college],[0, 0.5, 1])
+ax.set_title('Reading exam score and parental level of education', weight = "bold")
+ax.set_ylabel('Reading exam score')
+ 
+ax.set_xticks([0, 0.5, 1])
+ax.grid(axis = "y")
+ax.set_xticklabels(['High School', 'Some high school', "Some college"])
+
+
+
+
+
+
+
+
 
