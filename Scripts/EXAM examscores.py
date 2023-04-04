@@ -161,7 +161,7 @@ ax.set_xlim([-0.6, 3])
 
 #%% Filtering parental level of education intro different groups
  
-filter_high_school = df["parental level of education"] == "high school"
+filter_high_schoollll = df["parental level of education"] == "high school"
 df_high_school = df[filter_high_school]
 
 filter_some_high_school = df["parental level of education"] == "some high school"
@@ -171,37 +171,55 @@ filter_some_college = df["parental level of education"] == "some college"
 df_some_colleg = df[filter_some_college]
 
 
-filter_bachelors_degree = df["parental level of education"] == "bachelor´s degree"
+filter_bachelors_degree = df["parental level of education"] == "bachelor's degree"
 df_bachelors_degree = df[filter_bachelors_degree]
                          
 filter_some_high_school= df["parental level of education"] == "some high school"
 df_some_high_school = df[filter_some_high_school]
 
-filter_masters= df["parental level of education"] == "master´s degree"
+filter_masters= df["parental level of education"] == "master's degree"
 df_masters = df[filter_masters]
 
 filter_associates= df["parental level of education"] == "associate's degree"
 df_associates = df[filter_associates]
 
 #%% Mean overall exam score on all three exams for both female and male 
-#Making variables of parental level of education and reading score
+#Making variables of the parental level of educations that I have choosen to look into and reading scores on the exam
 
 readingscore_high_school = df_high_school["reading score"]
-readingscore_some_high_school = df_some_high_school["reading score"]
-readingscore_some_college = df_some_colleg["reading score"]
+readingscore_bachelors_degree = df_bachelors_degree["reading score"]
+readingscore_masters_degree = df_masters["reading score"]
 
-
-
+# Making the violin plot
 
 fig, ax = plt.subplots()
 
-ax.violinplot ([readingscore_high_school, readingscore_some_high_school, readingscore_some_college],[0, 0.5, 1])
+ax.violinplot ([readingscore_high_school, readingscore_bachelors_degree, readingscore_masters_degree],[0, 0.5, 1])
 ax.set_title('Reading exam score and parental level of education', weight = "bold")
 ax.set_ylabel('Reading exam score')
+
  
 ax.set_xticks([0, 0.5, 1])
 ax.grid(axis = "y")
-ax.set_xticklabels(['High School', 'Some high school', "Some college"])
+ax.set_xticklabels(['High school', "Bachelor´s degree", 'Master´s degree'])
+
+#%%
+mathscore_high_school = df_high_school["math score"]
+mathscore_bachelors_degree = df_bachelors_degree["math score"]
+mathscore_masters_degree = df_masters["math score"]
+
+# Making the violin plot
+
+fig, ax = plt.subplots()
+
+ax.violinplot ([mathscore_high_school, mathscore_bachelors_degree, mathscore_masters_degree],[0, 0.5, 1])
+ax.set_title('Math exam score and parental level of education', weight = "bold")
+ax.set_ylabel('Math exam score')
+
+ 
+ax.set_xticks([0, 0.5, 1])
+ax.grid(axis = "y")
+ax.set_xticklabels(['High school', "Bachelor´s degree", 'Master´s degree'])
 
 
 
