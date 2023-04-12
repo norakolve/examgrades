@@ -183,7 +183,7 @@ df_masters = df[filter_masters]
 filter_associates= df["parental level of education"] == "associate's degree"
 df_associates = df[filter_associates]
 
-#%% Mean overall exam score on all three exams for both female and male 
+#%% Exam score on the reading exam in a graph with parental level of education
 #Making variables of the parental level of educations that I have choosen to look into and reading scores on the exam
 
 readingscore_high_school = df_high_school["reading score"]
@@ -203,7 +203,8 @@ ax.set_xticks([0, 0.5, 1])
 ax.grid(axis = "y")
 ax.set_xticklabels(['High school', "Bachelor´s degree", 'Master´s degree'])
 
-#%%
+#%% Exam score on the math exam in a graph with parental level of education 
+# Making variables of the parental level of educations that I have choosen to look into and scores on the math exam
 mathscore_high_school = df_high_school["math score"]
 mathscore_bachelors_degree = df_bachelors_degree["math score"]
 mathscore_masters_degree = df_masters["math score"]
@@ -220,12 +221,3 @@ ax.set_ylabel('Math exam score')
 ax.set_xticks([0, 0.5, 1])
 ax.grid(axis = "y")
 ax.set_xticklabels(['High school', "Bachelor´s degree", 'Master´s degree'])
-
-
-
-
-
-
-
-
-
