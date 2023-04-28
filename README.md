@@ -1,6 +1,6 @@
 # Examgrades
 
-This project is about examgrades and different factors that can affect exam grades. I hope you find it interesting! 
+This project is about examgrades and different factors that can affect students examgrades. I hope you find it interesting! 
 
 ## Table of contents
     📊 Graphs
