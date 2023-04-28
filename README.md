@@ -4,7 +4,7 @@ This project is about examgrades and different factors that can affect exam grad
 
 ## Table of contents
     📊 Graphs
-    🔗 Links
+    🔗 Link
     💾 Data
     🔖 Licence 
     👩‍🔬 Authors
@@ -16,7 +16,7 @@ The graphs that I have made are:
   * Violin plot of lunch type and preparation course effect on the math exam score.
   * Violin plot of parental level of educations effect on math and reading exam score.
 
-## 🔗 Links
+## 🔗 Link
 Link to my project on GitHub:
 https://github.com/norakolve/examgrades 
 
